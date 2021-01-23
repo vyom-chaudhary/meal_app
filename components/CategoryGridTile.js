@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Button, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, Button, FlatList, TouchableOpacity, Animated } from 'react-native'
 import { CATEGORIES } from '../data/dummy-data.js'
 import colors from '../constants/color'
 
@@ -7,11 +7,13 @@ import colors from '../constants/color'
 const CategoryGridTile = (props) => {
 
     return (
-        <TouchableOpacity style={{ ...styles.gridItem, backgroundColor: props.color }} onPress={props.onSelect}>
-            <View >
-                <Text style={styles.title} numberOfLines={2}>{props.title}</Text>
-            </View>
-        </TouchableOpacity>
+        <Animated.View style={{ ...styles.screen, ...props.style }}>
+            <TouchableOpacity style={{ ...styles.gridItem, backgroundColor: props.color }} onPress={props.onSelect}>
+                <View >
+                    <Text style={styles.title} numberOfLines={2}>{props.title}</Text>
+                </View>
+            </TouchableOpacity>
+        </Animated.View>
     )
 }
 const styles = StyleSheet.create({

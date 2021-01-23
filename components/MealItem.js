@@ -9,7 +9,7 @@ const MealItem = (props) => {
 
 
     return (
-        <View style={{ flex: 1 }}>
+        <TouchableOpacity onPress={props.onSelectMeal} activeOpacity={0.9} style={{ flex: 1, marginHorizontal: 15, marginBottom: 5, borderRadius: 20, overflow: "hidden" }}>
             <View style={styles.grid}>
                 <View>
                     <ImageBackground source={{ uri: props.mealData.imageUrl }} style={styles.bgImage}>
@@ -20,7 +20,7 @@ const MealItem = (props) => {
                 </View>
 
             </View>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: "#d7dbd5" }}>
+            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: "#d7dbd5", height: 25 }}>
                 <View style={{ marginHorizontal: 50 }}>
                     <Text styles={styles.subTitle}>{props.mealData.duration}m</Text>
                 </View>
@@ -31,7 +31,7 @@ const MealItem = (props) => {
                     <Text styles={styles.subTitle}>pricey</Text>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
 
 
 

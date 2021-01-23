@@ -1,3 +1,5 @@
+import { NavigationContainer } from '@react-navigation/native';
+
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -6,6 +8,8 @@ import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading'
 
 import MealsNavigator from './navigation/MealsNavigator'
+import TabNavigator from './navigation/TabNavigator'
+import DrawerNavigation from "./navigation/DrawerNavigator";
 
 
 enableScreens();
@@ -29,7 +33,13 @@ export default function App() {
     //   <Text style={{ fontFamily: 'open-sans-bold' }}>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
-    <MealsNavigator></MealsNavigator>
+    <NavigationContainer>
+      <DrawerNavigation>
+
+      </DrawerNavigation>
+    </NavigationContainer>
+
+
   );
 }
 

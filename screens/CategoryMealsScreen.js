@@ -6,19 +6,29 @@ import colors from '../constants/color'
 import MealItem from '../components/MealItem'
 
 const CategoryMealsScreen = (props) => {
-    const catId = props.navigation.getParam('categoryId')
+    const catId = props.route.params.categoryId
+    const selectedCategory = CATEGORIES.find((data) => data.id === catId)
+
     const displayMeals = MEALS.filter((data) => {
         return data.categoryIds.indexOf(catId) >= 0
     })
     const renderMealItem = (itemData) => {
         const data = itemData.item
         return (
-            <MealItem mealData={data}></MealItem>
+            <MealItem mealData={data} onSelectMeal={() => props.navigation.navigate(
+                'MealDetailsScreen',
+                {
+                    mealId: itemData.item.id
+                }
+            )}></MealItem>
             // <View>
             //     <Text>{itemData.item.title}</Text>
             // </View>
         )
     }
+    props.navigation.setOptions({
+        headerTitle: selectedCategory.title,
+    });
     return (
         // <View style={styles.screen}>
         //     <Text>The Category Meals screen</Text>
@@ -28,7 +38,7 @@ const CategoryMealsScreen = (props) => {
         <FlatList style={{ marginTop: 20 }} keyExtractor={(item, index) => item.id} data={displayMeals} renderItem={renderMealItem} numColumns={1}></FlatList>
     )
 }
-CategoryMealsScreen.navigationOptions = (props) => {
+CategoryMealsScreen.setOptions = (props) => {
     const catId = props.navigation.getParam('categoryId')
     const selectedCategory = CATEGORIES.find((data) => data.id === catId)
 
