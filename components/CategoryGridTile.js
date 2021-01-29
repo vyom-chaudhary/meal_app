@@ -7,13 +7,13 @@ import colors from '../constants/color'
 const CategoryGridTile = (props) => {
 
     return (
-        <Animated.View style={{ ...styles.screen, ...props.style }}>
+        <View style={styles.screen}>
             <TouchableOpacity style={{ ...styles.gridItem, backgroundColor: props.color }} onPress={props.onSelect}>
                 <View >
                     <Text style={styles.title} numberOfLines={2}>{props.title}</Text>
                 </View>
             </TouchableOpacity>
-        </Animated.View>
+        </View>
     )
 }
 const styles = StyleSheet.create({

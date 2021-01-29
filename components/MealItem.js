@@ -22,13 +22,13 @@ const MealItem = (props) => {
             </View>
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: "#d7dbd5", height: 25 }}>
                 <View style={{ marginHorizontal: 50 }}>
-                    <Text styles={styles.subTitle}>{props.mealData.duration}m</Text>
+                    <Text styles={styles.subTitle}>{props.mealData.duration}M</Text>
                 </View>
                 <View style={{ marginHorizontal: 50 }}>
-                    <Text styles={styles.subTitle}>{props.mealData.complexity}</Text>
+                    <Text styles={styles.subTitle}>{props.mealData.complexity.toUpperCase()}</Text>
                 </View>
                 <View style={{ marginHorizontal: 50 }}>
-                    <Text styles={styles.subTitle}>pricey</Text>
+                    <Text styles={styles.subTitle}>{props.mealData.affordability.toUpperCase()}</Text>
                 </View>
             </View>
         </TouchableOpacity>

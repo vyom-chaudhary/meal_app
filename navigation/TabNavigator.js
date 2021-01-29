@@ -19,32 +19,33 @@ import color from '../constants/color';
 const Tab = createMaterialBottomTabNavigator();
 const TabNavigator = () => {
     return (
-        <NavigationContainer independent={true}>
-            <Tab.Navigator initialRouteName="Meals"
-                activeTintColor='white'
-                shifting={true}
-                barStyle={
-                    { backgroundColor: color.primaryColor }
-                }
-            >
-                <Tab.Screen name="Meals" component={MealsNavigator} options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name="ios-restaurant" size={25} color={color}></Ionicons>
-                    },
-                    tabBarColor: color.primaryColor
-                }} />
-                <Tab.Screen name="Favourites" component={FavouriteNavigator} options={{
-                    tabBarIcon: ({ color, size }) => {
-                        return <Ionicons name="ios-star" size={25} color={color}></Ionicons>
-                    },
-                    tabBarColor: color.accentColor
-                }} />
-            </Tab.Navigator>
-        </NavigationContainer >
+        // <NavigationContainer independent={true}>
+        <Tab.Navigator initialRouteName="Meals"
+            activeTintColor='white'
+            shifting={true}
+            barStyle={
+                { backgroundColor: color.primaryColor }
+            }
+
+        >
+            <Tab.Screen name="Meals" component={MealsNavigator} options={{
+                tabBarIcon: ({ color, size }) => {
+                    return <Ionicons name="ios-restaurant" size={25} color={color}></Ionicons>
+                },
+                tabBarColor: color.primaryColor
+            }} />
+            <Tab.Screen name="Favourites" component={FavouriteNavigator} options={{
+                tabBarIcon: ({ color, size }) => {
+                    return <Ionicons name="ios-star" size={25} color={color}></Ionicons>
+                },
+                tabBarColor: color.accentColor
+            }} />
+        </Tab.Navigator>
+        // </NavigationContainer >
     );
 }
 
 
 
 
-export default TabNavigator
+export { TabNavigator }

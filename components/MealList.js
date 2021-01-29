@@ -8,7 +8,8 @@ const MealList = (props) => {
     const renderGridItem = (itemData) => {
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate('MealDetailsScreen', {
-                mealId: itemData.item.id
+                mealId: itemData.item.id,
+                mealTitle: itemData.item.title
             })} activeOpacity={0.9} style={{ flex: 1, marginHorizontal: 15, marginBottom: 5, borderRadius: 20, overflow: "hidden" }}>
                 <View style={styles.grid}>
                     <View>

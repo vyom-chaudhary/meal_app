@@ -8,56 +8,68 @@ import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryMealsScreen from '../screens/CategoryMealsScreen'
 import MealDetailsScreen from '../screens/MealDetailsScreen'
 import FavouriteScreen from '../screens/FavouriteScreen'
+import FiltersScreen from '../screens/FiltersScreen'
+
 import colors from '../constants/color'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import color from '../constants/color';
 
 
 const Stack = createStackNavigator();
 const MealsNavigator = () => {
     return (
-        <NavigationContainer independent={true}>
-            <Stack.Navigator
-                initialRouteName="CategoriesScreen"
-            >
-                <Stack.Screen
-                    name="CategoriesScreen"
-                    component={CategoriesScreen}
-                // options={{ title: 'My app' }}    
-                />
-                <Stack.Screen
-                    name="CategoryMealsScreen"
-                    component={CategoryMealsScreen}
-                // options={{ title: 'My app' }}    
-                />
-                <Stack.Screen
-                    name="MealDetailsScreen"
-                    component={MealDetailsScreen}
-                // initialParams={{ user: 'me' }}
-                />
-            </Stack.Navigator>
-        </NavigationContainer>
+        // <NavigationContainer independent={true}>
+        <Stack.Navigator
+            initialRouteName="CategoriesScreen" screenOptions={{
+                headerTintColor: color.primaryColor,
+
+            }}
+        >
+            <Stack.Screen
+                name="CategoriesScreen"
+                component={CategoriesScreen}
+            // options={{ title: 'My app' }}    
+            />
+            <Stack.Screen
+                name="CategoryMealsScreen"
+                component={CategoryMealsScreen}
+            // options={{ title: 'My app' }}    
+            />
+            <Stack.Screen
+                name="MealDetailsScreen"
+                component={MealDetailsScreen}
+            // initialParams={{ user: 'me' }}
+            />
+        </Stack.Navigator>
+        // </NavigationContainer>
     );
 }
 
 const FavouriteNavigator = () => {
     return (
-        <NavigationContainer independent={true}>
-            <Stack.Navigator>
-                <Stack.Screen name="Favourites" component={FavouriteScreen}></Stack.Screen>
-                <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen}></Stack.Screen>
+        // <NavigationContainer independent={true}>
+        <Stack.Navigator screenOptions={{
+            headerTintColor: color.primaryColor,
 
-            </Stack.Navigator>
-        </NavigationContainer>
+        }}>
+            <Stack.Screen name="Favourites" component={FavouriteScreen}></Stack.Screen>
+            <Stack.Screen name="MealDetailsScreen" component={MealDetailsScreen}></Stack.Screen>
+
+        </Stack.Navigator >
+        // </NavigationContainer>
     )
 }
 
 const FiltersNavigator = () => {
     return (
-        <NavigationContainer independent={true}>
-            <Stack.Navigator>
-                <Stack.Screen name="filters" component={FavouriteScreen}></Stack.Screen>
-            </Stack.Navigator>
-        </NavigationContainer>
+        // <NavigationContainer independent={true}>
+        <Stack.Navigator screenOptions={{
+            headerTintColor: color.primaryColor,
+
+        }} initialRouteName="filters">
+            <Stack.Screen name="filters" component={FiltersScreen}></Stack.Screen>
+        </Stack.Navigator>
+        // </NavigationContainer>
     )
 }
 // const MealsNavigator = createStackNavigator({

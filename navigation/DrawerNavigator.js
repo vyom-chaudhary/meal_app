@@ -1,4 +1,5 @@
 import React from 'react'
+import { Platform, SafeAreaView, Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {
     createDrawerNavigator,
@@ -19,7 +20,8 @@ import colors from '../constants/color'
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import { MealsNavigator, FavouriteNavigator, FiltersNavigator } from "./MealsNavigator";
-import TabNavigator from "./TabNavigator";
+import { TabNavigator } from "./TabNavigator";
+import color from '../constants/color';
 
 
 // const Drawer = createDrawerNavigator();
@@ -59,11 +61,11 @@ function CustomDrawerContent(props) {
 
 const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
+const MyDrawer = () => {
     return (
-        <Drawer.Navigator>
-            <Drawer.Screen name="Feed" component={MealsNavigator} />
-            <Drawer.Screen name="Notifications" component={FavouriteScreen} />
+        <Drawer.Navigator initialRouteName="Meals">
+            <Drawer.Screen name="Meals" component={TabNavigator} />
+            <Drawer.Screen name="filters" component={FiltersNavigator} />
         </Drawer.Navigator>
     );
 }

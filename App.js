@@ -6,15 +6,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import { enableScreens } from 'react-native-screens'
 import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
 
+import mealsReducer from './store/reducers/meals'
 import MealsNavigator from './navigation/MealsNavigator'
 import TabNavigator from './navigation/TabNavigator'
 import DrawerNavigation from "./navigation/DrawerNavigator";
 
-
 enableScreens();
+console.disableYellowBox = true;
 
+const rootReducer = combineReducers({
+  meals: mealsReducer
+})
 
+const store = createStore(rootReducer)
 const FetchFonts = () => {
   return Font.loadAsync({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -33,12 +40,13 @@ export default function App() {
     //   <Text style={{ fontFamily: 'open-sans-bold' }}>Open up App.js to start working on your app!</Text>
     //   <StatusBar style="auto" />
     // </View>
-    <NavigationContainer>
-      <DrawerNavigation>
+    <Provider store={store}>
+      <NavigationContainer>
+        <DrawerNavigation>
 
-      </DrawerNavigation>
-    </NavigationContainer>
-
+        </DrawerNavigation>
+      </NavigationContainer>
+    </Provider>
 
   );
 }
